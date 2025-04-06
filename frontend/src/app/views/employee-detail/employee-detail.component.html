@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container mt-5 d-flex justify-content-center align-items-center">
+  <mat-card class="w-100" style="max-width: 600px; padding: 24px">
+    <mat-card-header class="d-flex justify-content-between align-items-center">
+      <mat-card-title>Employee Details</mat-card-title>
+      <button mat-raised-button class="close" (click)="router.navigate(['/employees'])" aria-label="Close">
+        <span>X</span>
+      </button>
+    </mat-card-header>
+
+    <mat-card-content class="mt-4">
+      <div *ngIf="error" class="mat-body-2 alert alert-danger">{{ error }}</div>
+
+      <div *ngIf="loading" class="mat-body-2">Loading employee details...</div>
+
+      <div *ngIf="employee">
+        <div class="text-center mb-4">
+          <img [src]="'https://ui-avatars.com/api/?name=' + employee.first_name + '+' + employee.last_name" alt="Employee Photo" class="img-fluid rounded-circle" style="max-height: 150px; object-fit: cover;"  *ngIf="!employee.employee_photo" />
+          <img [src]="employee.employee_photo" alt="Employee Photo" class="img-fluid rounded-circle" style="max-height: 150px; object-fit: cover;"  *ngIf="employee.employee_photo" />
+        </div>
+
+        <p><strong>First Name:</strong> {{ employee.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ employee.last_name }}</p>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Designation:</strong> {{ employee.designation }}</p>
+        <p><strong>Salary:</strong> {{ employee.salary | currency }}</p>
+        <p><strong>Date of Joining:</strong> {{ date_of_joining }}</p>
+        <p><strong>Department:</strong> {{ employee.department }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
