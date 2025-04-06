@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+  <span class="navbar-brand">Employee Manager</span>
+
+  <span class="spacer"></span>
+
+  <button mat-button class="text-danger" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+</mat-toolbar>
