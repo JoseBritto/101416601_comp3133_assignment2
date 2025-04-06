@@ -32,7 +32,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideApollo(() => ({
       link: inject(HttpLink).create({
-        uri: 'http://backend:4000/graphql',
+        uri: 'http://localhost:4000/graphql',
       }),
       cache: new InMemoryCache(),
       defaultOptions: apolloDefaultOptions
